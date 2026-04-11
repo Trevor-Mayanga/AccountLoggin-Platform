@@ -5,12 +5,17 @@
 package com.mycompany.accountloggin;
 
 import java.util.regex.Pattern;
+import java.util.HashMap;
 
 /**
  *
  * @author lab_services_student
  */
 public class AccountLoggin {
+    
+    // where the details will stored [password & username]
+private static HashMap<String, String[]> userDatabase = new HashMap<>();
+
     
   // Check usernamm: must contain _ and maximum of 8 charectors 
     
@@ -35,6 +40,27 @@ public static boolean checkCellPhoneNumber(String phone){
     return Pattern.matches(regex,phone1);
     
     };
+
+// Registering the usre 
+
+ public String registerUser(String username, String surname, String password, String phone) {
+        if (!checkUsername(username)) {
+            return "Username incorrectly formatted, please ensure that your username contains an underscore and is no more than 5 characters long.";
+        }
+        if (!checkPasswordComplexity(password.toCharArray())) {
+            return "Password is not correctly formatted, please ensure that the password contains at least 8 characters, a capital letter, a number and a special character.";
+        }
+        if (!checkCellPhoneNumber(phone)) {
+            return "The cellphone number is incorrectly formatted.";
+        }
+
+        // Store user: Username is the key, [password, surname] is the value
+        userDatabase.put(username, new String[]{password, surname});
+        return "The two items have been registered successfully.";
+ }
+
+
+
 
 
         
