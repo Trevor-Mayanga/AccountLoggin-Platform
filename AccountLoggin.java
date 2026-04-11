@@ -20,7 +20,7 @@ private static HashMap<String, String[]> userDatabase = new HashMap<>();
   // Check usernamm: must contain _ and maximum of 8 charectors 
     
 public static boolean checkUsername(String username ){
-    return username.contains("_")&& username.length()<=8;
+    return username.contains("_")&& username.length()<=5;
             }
 //check password: must contain: a cap latter + a num + a special charector
 
@@ -28,7 +28,7 @@ public static boolean checkPasswordComplexity(char[] password){
     if (password == null) return false;
     String passW=new String(password);
     // regex: at least has one digit + one cap letter + one special charector
-    String regex = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?\":{}|<>]).{8,}$";
+    String regex = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?\":{}|<>]).{8}$";
         return Pattern.matches(regex, passW);
 }
         
@@ -43,7 +43,7 @@ public static boolean checkCellPhoneNumber(String phone){
 
 // Registering the usre 
 
- public  String registerUser(String username, String surname, String password, String phone) {
+ public static String registerUser(String username, String surname, String password, String phone) {
         if (!checkUsername(username)) {
             return "Username incorrectly formatted, please ensure that your username contains an underscore and is no more than 5 characters long.";
         }
