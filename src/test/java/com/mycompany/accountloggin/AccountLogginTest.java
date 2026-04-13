@@ -63,5 +63,37 @@ public void testCellPhoneWithoutAnyConditionsMet(){
         assertFalse(result);
                 
 }
+
+@Test 
+// successful registration
+
+public void testingASuccessfulRegistration(){
+    AccountLoggin.registerUser("kyl_1", "Mayanga", "Ch&&sec@ke99!", "+27838968976");
+    
+    
+   // successful loggin
+    boolean result = AccountLoggin.loginUser("kyl_1", "Ch&&sec@ke99!");
+    
+    assertTrue(result);
+}
+
+@Test 
+// testing if the loggin status can be returned
+
+// 1 register the user
+
+public void tstingReturnLogginStatus(){
+    AccountLoggin.registerUser("kyl_1", "Mayanga", "Ch&&sec@ke99!", "+27838968976");
+    
+    // 2 return the status
+    String result = AccountLoggin.returnLoginStatus("kyl_1","Ch&&sec@ke99!" );
+    
+    // 3 
+    
+     String expected = "WELCOME kyl_1 Mayanga IT IS NICE TO SEE YOU AGAIN";
+    assertEquals(expected, result);
+    
+    
+}
 }
 

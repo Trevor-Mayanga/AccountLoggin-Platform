@@ -56,7 +56,7 @@ public static boolean checkCellPhoneNumber(String phone){
 
         // Store user: Username is the key, [password, surname] is the value
         userDatabase.put(username, new String[]{password, surname});
-        return "The two items have been registered successfully.";
+        return "Registration successful.";
    }
  //Method to login user
  
