@@ -4,8 +4,8 @@
 
 package com.mycompany.accountloggin;
 
-import java.util.regex.Pattern;
-import java.util.HashMap;
+import java.util.regex.Pattern;//(W3shcools,2026)
+import java.util.HashMap;//(W3shools,2026)
 
 
 /**
@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class AccountLoggin {
     
     // where the details will stored [password & username]
-private static HashMap<String, String[]> userDatabase = new HashMap<>();
+private static HashMap<String, String[]> userDatabase = new HashMap<>(); // 
 
     
   // Check usernamm: must contain _ and maximum of 8 charectors 
