@@ -7,6 +7,7 @@ package com.mycompany.accountloggin;
 import java.util.regex.Pattern;
 import java.util.HashMap;
 
+
 /**
  *
  * @author lab_services_student
@@ -35,9 +36,8 @@ public static boolean checkPasswordComplexity(char[] password){
 //check cellphone number: must be south african
  
 public static boolean checkCellPhoneNumber(String phone){
-    String phone1=new String(phone);
     String regex = ("^\\+27[0-9]{9}$");
-    return Pattern.matches(regex,phone1);
+    return Pattern.matches(regex,phone);
     
     };
 
@@ -83,27 +83,17 @@ public static boolean checkCellPhoneNumber(String phone){
  
  }
  
+public static void main(String[] args) {
+          
+    AccountLoggin app = new AccountLoggin();
 
+    // 1. Register a user
+    System.out.println(app.registerUser("u_1", "Smith", "P@ssw0rd", "+27821234567"));
 
-
-
-
-        
-        
-   
-     
-    
-
-
+    // 2. Try to login
+    System.out.println(app.returnLoginStatus("u_1", "P@ssw0rd"));
+}
 
     
-    
-    
-    
-    
-    
-    
-    public static void main(String[] args) {
-        
     }
-};
+

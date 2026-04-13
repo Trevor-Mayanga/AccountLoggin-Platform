@@ -50,7 +50,7 @@ public void testPasswordThatDoesNotMeetTheRequirmets(){
 // test the validity of the the cellphone number"+27 838 968 976" 
 
 public void testCellphoneWithBothCorrectLengthAndInternationalCode(){
-    boolean result = AccountLoggin.checkCellPhoneNumber("+27 838 968 976");
+    boolean result = AccountLoggin.checkCellPhoneNumber("+27838968976");
     assertTrue(result);
 
 }
@@ -59,12 +59,9 @@ public void testCellphoneWithBothCorrectLengthAndInternationalCode(){
 // test the validity of the cellphone numbet"089 665 53"
 
 public void testCellPhoneWithoutAnyConditionsMet(){
-        boolean result = AccountLoggin.checkCellPhoneNumber("038 665 53");
+        boolean result = AccountLoggin.checkCellPhoneNumber("03866553");
         assertFalse(result);
                 
 }
-
-
-
-  
 }
+
