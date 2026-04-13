@@ -46,6 +46,25 @@ public void testPasswordThatDoesNotMeetTheRequirmets(){
 
 }
 
+@Test
+// test the validity of the the cellphone number"+27 838 968 976" 
+
+public void testCellphoneWithBothCorrectLengthAndInternationalCode(){
+    boolean result = AccountLoggin.checkCellPhoneNumber("+27 838 968 976");
+    assertTrue(result);
+
+}
+
+@Test 
+// test the validity of the cellphone numbet"089 665 53"
+
+public void testCellPhoneWithoutAnyConditionsMet(){
+        boolean result = AccountLoggin.checkCellPhoneNumber("038 665 53");
+        assertFalse(result);
+                
+}
+
+
 
   
 }
