@@ -28,7 +28,7 @@ public static boolean checkPasswordComplexity(char[] password){
     if (password == null) return false;
     String passW=new String(password);
     // regex: at least has one digit + one cap letter + one special charector
-    String regex = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?\":{}|<>]).{8}$";
+    String regex = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?\":{}|<>]).{8,}$";
         return Pattern.matches(regex, passW);
 }
         
