@@ -13,9 +13,15 @@ import java.util.HashMap;//(W3shools,2026)
  * @author lab_services_student
  */
 public class AccountLoggin {
+    // Instance variables (can be private)
+    private String userName;
+    private String passWord;
+    private String phone;
     
-    // where the details will stored [password & username]
-private static HashMap<String, String[]> userDatabase = new HashMap<>(); // 
+    // storage variables
+    private static String registeredUsername;
+    private static String registeredPassword;
+    private static String registeredSurname;
 
     
   // Check usernamm: must contain _ and maximum of 8 charectors 
@@ -39,11 +45,11 @@ public static boolean checkCellPhoneNumber(String phone){
     String regex = ("^\\+27[0-9]{9}$");
     return Pattern.matches(regex,phone);
     
-    };
+    }
 
 // Registering the usre 
 
- public static String registerUser(String username, String surname, String password, String phone) {
+ public String registerUser(String username, String surname, String password, String phone) {
         if (!checkUsername(username)) {
             return "Username incorrectly formatted, please ensure that your username contains an underscore and is no more than 5 characters long.";
         }
@@ -54,15 +60,19 @@ public static boolean checkCellPhoneNumber(String phone){
             return "The cellphone number is incorrectly formatted.";
         }
 
-        // Store user: Username is the key, [password, surname] is the value
-        userDatabase.put(username, new String[]{password, surname});
+        // SAVING TO VARIABLES
+        registeredUsername = username;
+        registeredPassword = password;
+        registeredSurname = surname;
+        
+       
         return "Registration successful.";
    }
  //Method to login user
  
  public static boolean loginUser(String username,String password){
-     if (userDatabase.containsKey(username)){
-            return userDatabase.get(username)[0].equals(password);}
+     if (registeredUsername !=null && registeredUsername.equals(username)){
+            return  registeredPassword.equals(password);}
      return false;
  }
  
@@ -71,8 +81,8 @@ public static boolean checkCellPhoneNumber(String phone){
  
  public static String returnLoginStatus(String username, String password){
      if  (loginUser(username,password)) {
-          String surname = userDatabase.get(username)[1];
-         return "WELCOME " + username + " " + surname + " IT IS NICE TO SEE YOU AGAIN";
+          
+         return "WELCOME " + registeredUsername + " " + registeredSurname + " IT IS NICE TO SEE YOU AGAIN";
      }else {
          return "USERNAME OR PASSWORD INCORRECT PLEASE TRY AGAIN";
          }
@@ -82,7 +92,7 @@ public static boolean checkCellPhoneNumber(String phone){
   
  
  }
- 
+ //
 public static void main(String[] args) {
           
     AccountLoggin app = new AccountLoggin();
